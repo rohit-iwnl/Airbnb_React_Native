@@ -3,7 +3,7 @@ import React from 'react'
 
 const Booking = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Booking</Text>
     </View>
   )
@@ -11,4 +11,9 @@ const Booking = () => {
 
 export default Booking
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor: '#000',
+    flex:1
+  }
+})

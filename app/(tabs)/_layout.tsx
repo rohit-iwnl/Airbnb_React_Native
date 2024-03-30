@@ -16,7 +16,7 @@ const Layout = () => {
       }}
     >
       <Tabs.Screen
-        name="Index"
+        name="index"
         options={{
           tabBarLabel: "Explore",
           tabBarIcon: ({ color, size }) => (
@@ -26,7 +26,7 @@ const Layout = () => {
       />
 
       <Tabs.Screen
-        name="Wishlist"
+        name="wishlist"
         options={{
           tabBarLabel: "Wishlist",
           tabBarIcon: ({ color, size }) => (
@@ -36,7 +36,7 @@ const Layout = () => {
       />
 
       <Tabs.Screen
-        name="Trips"
+        name="trips"
         options={{
           tabBarLabel : "Trips",
           tabBarIcon : ( {color, size} ) => (
@@ -46,7 +46,7 @@ const Layout = () => {
       />
 
       <Tabs.Screen
-        name="Inbox"
+        name="inbox"
         options={{
           tabBarLabel : "Inbox",
           tabBarIcon : ({color,size}) => (
@@ -56,7 +56,7 @@ const Layout = () => {
       />
 
       <Tabs.Screen
-        name="Profile"
+        name="profile"
         options={{
           tabBarLabel : "Profile",
           tabBarIcon : ({color,size}) => <Ionicons name="person-outline" color={color} size={size} />
