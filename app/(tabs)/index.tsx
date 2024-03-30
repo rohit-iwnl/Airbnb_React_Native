@@ -27,7 +27,7 @@ const Index = () => {
           header: () => <ExploreHeader onCategoryChanged={onDataChanged}/>,
         }}
       />
-      <Listings listings={listingsData} category={category}/>
+      <Listings listings={items} category={category}/>
     </View>
   );
 };

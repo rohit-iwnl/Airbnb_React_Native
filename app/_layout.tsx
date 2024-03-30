@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
+import Colors from "@/constants/Colors";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -44,7 +45,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    "poppins": require("../assets/fonts/Poppins-Regular.ttf"),
+    poppins: require("../assets/fonts/Poppins-Regular.ttf"),
     "poppins-sb": require("../assets/fonts/Poppins-SemiBold.ttf"),
     "poppins-b": require("../assets/fonts/Poppins-Bold.ttf"),
   });
@@ -65,7 +66,10 @@ export default function RootLayout() {
   }
 
   return (
-    <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY!} tokenCache={tokenCache}>
+    <ClerkProvider
+      publishableKey={CLERK_PUBLISHABLE_KEY!}
+      tokenCache={tokenCache}
+    >
       <RootLayoutNav />
     </ClerkProvider>
   );
@@ -78,7 +82,7 @@ function RootLayoutNav() {
 
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
-      router.push("/(modals)/login");
+      // router.push("/(modals)/login");
     }
   }, []);
 
@@ -101,12 +105,28 @@ function RootLayoutNav() {
         }}
       />
 
-      {/* <Stack.Screen
+      <Stack.Screen
         name="listing/[id]"
         options={{
           headerTitle: "",
+          headerBackTitle: "Back",
+          headerTransparent: true,
+          headerBackTitleStyle: {
+            fontFamily: "poppins-sb",
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}
+              style={{
+                backgroundColor: "#fff",
+                padding: 8,
+                borderRadius: 24,
+              }}
+            >
+              <Ionicons name="arrow-back" size={24} color={Colors.primary} />
+            </TouchableOpacity>
+          ),
         }}
-      /> */}
+      />
 
       <Stack.Screen
         name="(modals)/booking"
