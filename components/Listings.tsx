@@ -13,7 +13,7 @@ import { StyleSheet } from "react-native";
 import { ListingData } from "@/interfaces/Listings";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated'
+import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
 
 interface Props {
   listings: any[];
@@ -32,7 +32,7 @@ export default function Listings({ listings: items, category }: Props) {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 200);
+    }, 350);
   }, [category]);
 
   const renderRow: ListRenderItem<ListingData> = ({ item }) => {
@@ -44,13 +44,18 @@ export default function Listings({ listings: items, category }: Props) {
     return (
       <Link href={`/listing/${item.id}`} asChild>
         <TouchableOpacity>
-          <Animated.View style={styles.listing} entering={FadeInRight} exiting={FadeOutLeft}>
+          <Animated.View
+            style={styles.listing}
+            entering={FadeInRight}
+            exiting={FadeOutLeft}
+          >
             <Image
               source={{
                 uri: item.xl_picture_url,
               }}
               style={styles.image}
             />
+
             <TouchableOpacity
               style={{
                 position: "absolute",
@@ -124,12 +129,12 @@ export default function Listings({ listings: items, category }: Props) {
 const styles = StyleSheet.create({
   listing: {
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   image: {
     width: "100%",
     height: 300,
-    borderRadius : 12,
+    borderRadius: 12,
   },
   listingBottomDetails: {
     flexDirection: "row",
@@ -137,4 +142,4 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 2,
   },
-}); 
+});

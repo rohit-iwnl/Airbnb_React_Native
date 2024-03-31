@@ -15,6 +15,18 @@ export const defaultStyles = StyleSheet.create({
         padding : 10,
         backgroundColor : "#fff"
     },
+    footer: {
+        position: 'absolute',
+        height: 100,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#fff',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderTopColor: Colors.dark,
+        borderTopWidth: StyleSheet.hairlineWidth,
+      },
 
     btn:{
         backgroundColor : Colors.primary,

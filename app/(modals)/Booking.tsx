@@ -1,19 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { BlurView } from "expo-blur";
 
 const Booking = () => {
   return (
-    <View style={styles.container}>
-      <Text>Booking</Text>
-    </View>
-  )
-}
+    <BlurView intensity={35} style={styles.container}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Text style={{
+          fontSize: 28,
+        }}>Booking Page</Text>
+      </View>
+    </BlurView>
+  );
+};
 
-export default Booking
+export default Booking;
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor: '#000',
-    flex:1
-  }
-})
+  container: {
+    backgroundColor : 'transparent',
+    flex: 1,
+  },
+});

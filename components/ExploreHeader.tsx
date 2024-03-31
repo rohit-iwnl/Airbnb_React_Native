@@ -9,7 +9,6 @@ import {
 import React, { useRef, useState } from "react";
 
 import {
-  MaterialCommunityIcons,
   Ionicons,
   MaterialIcons,
 } from "@expo/vector-icons";
@@ -23,14 +22,12 @@ const categories = [
   {
     name: "Apartments",
     icon: "home",
+    property_type: "Apartments",
   },
   {
     name: "Condos",
     icon: "house-siding",
-  },
-  {
-    name: "Condos",
-    icon: "videogame-asset",
+    property_type: "Condominium",
   },
   {
     name: "Trending",
@@ -68,7 +65,7 @@ const ExploreHeader = ({ onCategoryChanged }: Props) => {
       scrollRef.current?.scrollTo({ x: x - 14, y: 0, animated: true });
     });
 
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     onCategoryChanged(categories[index].name);
   };
   return (
@@ -76,9 +73,7 @@ const ExploreHeader = ({ onCategoryChanged }: Props) => {
       style={{
         backgroundColor: "#fff",
       }}
-      edges={[
-        'top','left','right'
-      ]}
+      edges={["top", "left", "right"]}
     >
       <View style={styles.container}>
         <View style={styles.actionRow}>
@@ -157,6 +152,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     height: 140,
+    marginTop: 12,
   },
   actionRow: {
     flexDirection: "row",

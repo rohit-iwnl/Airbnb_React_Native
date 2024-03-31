@@ -115,7 +115,8 @@ function RootLayoutNav() {
             fontFamily: "poppins-sb",
           },
           headerLeft: () => (
-            <TouchableOpacity onPress={() => router.back()}
+            <TouchableOpacity
+              onPress={() => router.back()}
               style={{
                 backgroundColor: "#fff",
                 padding: 8,
@@ -133,9 +134,19 @@ function RootLayoutNav() {
         options={{
           presentation: "transparentModal",
           animation: "fade",
+          animationDuration : 1000,
+          headerTransparent: true,
+          headerTitle : '',
           headerLeft: () => (
-            <TouchableOpacity onPress={() => router.back()}>
-              <Ionicons name="close-outline" size={28} />
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{
+                backgroundColor: "#fff",
+                padding: 8,
+                borderRadius: 24,
+              }}
+            >
+              <Ionicons name="arrow-back" size={24} color={Colors.primary} />
             </TouchableOpacity>
           ),
         }}
